@@ -28,10 +28,10 @@
             <circle cx="50" cy="50" r="45" :stroke="item.color"
                     :stroke-dashoffset="(item.start)*-1" :stroke-dasharray="`${item.end-item.start} 24`"
                     pathLength="24"/>
-<!--            <circle v-if="item.start+(item.end-item.start)>12 && item.start<12 && item.end" cx="50" cy="50" r="45"-->
-<!--                    :stroke="item.color"-->
-<!--                    :stroke-dashoffset="0" :stroke-dasharray="`${(item.start+(item.end-item.start))-12} 12`"-->
-<!--                    pathLength="12"/>-->
+            <!--            <circle v-if="item.start+(item.end-item.start)>12 && item.start<12 && item.end" cx="50" cy="50" r="45"-->
+            <!--                    :stroke="item.color"-->
+            <!--                    :stroke-dashoffset="0" :stroke-dasharray="`${(item.start+(item.end-item.start))-12} 12`"-->
+            <!--                    pathLength="12"/>-->
           </template>
         </g>
       </svg>
@@ -72,8 +72,8 @@ const hourHandTransform = ref<string>('')
 
 
 function getRandomColor() {
-  return "#" + ("00000" + Math.floor(Math.random() * Math.pow(16, 6)).toString(16)).slice(-6)+'60';
-  // return 'rgb(255 127 0 / 36%)';
+  // return "#" + ("00000" + Math.floor(Math.random() * Math.pow(16, 6)).toString(16)).slice(-6)+'60';
+  return 'rgb(255 127 0 / 36%)';
 }
 
 function setDate() {
