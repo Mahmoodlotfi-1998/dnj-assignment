@@ -3,17 +3,11 @@
     <div class="clock-component">
       <div class="clock">
         <div class="outer-clock-face">
-          <div class="marking marking-one"></div>
-          <div class="marking marking-two"></div>
-          <div class="marking marking-three"></div>
-          <div class="marking marking-four"></div>
-          <div class="marking marking-five"></div>
-          <div class="marking marking-six"></div>
-          <div class="marking marking-seven"></div>
-          <div class="marking marking-eight"></div>
-          <div class="marking marking-nine"></div>
-          <div class="marking marking-ten"></div>
-          <div class="marking marking-eleven"></div>
+          <div class="h0">00</div>
+          <div class="h6">06</div>
+          <div class="h12">12</div>
+          <div class="h18">18</div>
+          <div class="marking " v-for="i in [...Array(10).keys()]" :class="`marking-${i}`"></div>
           <div class="inner-clock-face">
             <div class="hand hour-hand" :style="{transform:hourHandTransform}"></div>
             <div class="hand min-hand" :style="{transform:minsHandTransform}"></div>
@@ -22,7 +16,7 @@
         </div>
       </div>
       <svg viewBox="0 0 100 100" width="300">
-        <g transform="rotate(270 50 50)" fill="none" stroke-width="5">
+        <g transform="rotate(270 50 50)" fill="none" stroke-width="3">
           <template v-for="item in localHours">
 
             <circle cx="50" cy="50" r="45" :stroke="item.color"
@@ -72,16 +66,21 @@ const hourHandTransform = ref<string>('')
 
 
 function getRandomColor() {
-  // this is random color generator to make activeHours color different
+  /**
+   * @description : this is random color generator to make activeHours color different
+   */
   // return "#" + ("00000" + Math.floor(Math.random() * Math.pow(16, 6)).toString(16)).slice(-6)+'60';
 
-  // use this for show conflict of activeHours
+  /**
+   * @description : use this for show conflict of activeHours
+   */
   return 'rgb(255 127 0 / 36%)';
 }
 
 function setDate() {
-  //this is for fun
-
+  /**
+   * @description : this is for fun
+   */
   const now = new Date();
   const seconds = now.getSeconds();
   const secondsDegrees = ((seconds / 60) * 360) + 90;
